@@ -17,12 +17,44 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
 }
 
 function validateInput(testInput) {
-   
+    if(testInput===''){
+        return 'Empty';
+    }else if(isNaN(testInput)){
+        return 'Not a number';
+    }else if(!isNaN(testInput)){
+        return 'Is a number';
+    }
+    
 }
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-   
-}
+    let form=document.querySelector('form');
+   if(validateInput(pilot)==='Empty'||validateInput(copilot==='Empty')||validateInput(fuelLevel)==='Empty'||validateInput(cargoLevel)==='Empty'){
+    alert('All fields required!');
+    
+   }else if(validateInput(fuelLevel)==='Not a number'||validateInput(cargoLevel)==='Not a number'||validateInput(pilot)==='Is a number'||validateInput(copilot)==='Is a number'){
+    alert('ERROR! Enter valid data for each field.');
+  
+    }else{
+        document.getElementById('pilotStatus').innerHTML=`Pilot ${pilot} is ready for takeoff!`;
+        document.getElementById('copilotStatus').innerHTML=`Copilot ${copilot} is also ready for takeoff!`;
+    }
+    if(fuelLevel<10000){
+        list.style.visibility='visible';
+        document.getElementById('fuelStatus').innerHTML=`Fuel status: too low <br> Not enought fuel for journey!`;
+        document.getElementById('launchStatus').innerHTML=`Shuttle not ready for launch!`;
+        document.getElementById('launchStatus').style.color='red';
+    }else if(cargoLevel>10000){
+        list.style.visibility='visible';
+        document.getElementById('cargoStatus').innerHTML=`Cargo status: too heavy <br> Too much mass for takeoff!`;
+        document.getElementById('launchStatus').innerHTML=`Shuttle not ready for launch!`;
+        document.getElementById('launchStatus').style.color='red';
+    }else{
+        document.getElementById('launchStatus').style.color='green';
+        document.getElementById('launchStatus').innerHTML=`Shuttle is ready for launch!`;
+    }
+    }
+    
 
 async function myFetch() {
     let planetsReturned;
