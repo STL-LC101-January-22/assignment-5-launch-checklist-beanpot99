@@ -13,19 +13,25 @@ window.addEventListener("load", function() {
        console.log(listedPlanets);
        // Below this comment call the appropriate helper functions to pick a planet fom the list of planets and add that information to your destination.
    });
-   let form=document.querySelector('form');
+   let form=this.document.querySelector("form");
     form.addEventListener('submit',function(event){
     let pilotInput=document.querySelector('input[name=pilotName]');
     let copilotInput=document.querySelector('input[name=copilotName]');
     let fuelInput=document.querySelector('input[name=fuelLevel]');
     let cargoInput=document.querySelector('input[name=cargoMass]');
     let faultyItemList=document.querySelector('#faultyItems');
-    let doc=window.document;
-    event.preventDefault();
-    formSubmission(doc,faultyItemList,pilotInput,copilotInput,fuelInput,cargoInput);
-    });
+    //let doc=window.document;
+    //event.preventDefault();
+    
+    formSubmission(document,faultyItemList,pilotInput,copilotInput,fuelInput,cargoInput);
+    
+});
 });
 
-
+////PROBLEMS:
+//not actually evaluating any value
+//wrong error messages and pop ups
+//do I need a this before my document?
+//do I need a .value after my items
            
     
