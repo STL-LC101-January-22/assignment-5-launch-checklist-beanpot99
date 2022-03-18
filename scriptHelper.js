@@ -1,6 +1,6 @@
 // Write your helper functions here!
 require('isomorphic-fetch');
-const errorMsg='';
+
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
    // Here is the HTML formatting for our mission target div.
    /*
@@ -17,43 +17,44 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
 }
 
 function validateInput(testInput) {
-    if(testInput===''){
-        return 'Empty';
+    if(testInput===""){
+        return 0; //empty string
     }else if(isNaN(testInput)){
-        return 'Not a number';
+        return 1; //not a number
     }else if(!isNaN(testInput)){
-        return 'Is a number';
+        return 2//is a num;
     }
     
 }
 
-function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-    //let form=document.querySelector('form');
-   if(validateInput(pilot)==='Empty'||validateInput(copilot==='Empty')||validateInput(fuelLevel)==='Empty'||validateInput(cargoLevel)==='Empty'){
+function formSubmission( pilot, copilot, fuelAmount, cargoLevel) {
+    //let pilotCopilot=true;
+   
+    if(validateInput(fuelAmount)===0||validateInput(cargoLevel)===0||validateInput(pilot)===0||validateInput(copilot)===0){
     alert('All fields required!');
-   event.preventDefault();
-   }else if(validateInput(fuelLevel)==='Not a number'||validateInput(cargoLevel)==='Not a number'||validateInput(pilot)==='Is a number'||validateInput(copilot)==='Is a number'){
+  //event.preventDefault();
+   }else if(validateInput(fuelAmount)===1||validateInput(cargoLevel)===1||validateInput(pilot)===2||validateInput(copilot)===2){
     alert('ERROR! Enter valid data for each field.');
-    event.preventDefault();
+    //event.preventDefault();
     }else{
         document.getElementById('pilotStatus').innerHTML=`Pilot ${pilot} is ready for takeoff!`;
-        document.getElementById('copilotStatus').innerHTML=`Copilot ${copilot} is also ready for takeoff!`;
-        if(fuelLevel<10000){
-            list.style.visibility='visible';
+        document.getElementById('copilotStatus').innerHTML=`Copilot ${copilot} is also ready for takeoff!`;  
+        if(fuelAmount<10000){
+            document.getElementById('faultyItems').style.visibility='visible';
             document.getElementById('fuelStatus').innerHTML=`Fuel status: too low <br> Not enought fuel for journey!`;
             document.getElementById('launchStatus').innerHTML=`Shuttle not ready for launch!`;
             document.getElementById('launchStatus').style.color='red';
         }else if(cargoLevel>10000){
-            list.style.visibility='visible';
+            document.getElementById('faultyItems').style.visibility='visible';
             document.getElementById('cargoStatus').innerHTML=`Cargo status: too heavy <br> Too much mass for takeoff!`;
             document.getElementById('launchStatus').innerHTML=`Shuttle not ready for launch!`;
             document.getElementById('launchStatus').style.color='red';
         }else{
             document.getElementById('launchStatus').style.color='green';
             document.getElementById('launchStatus').innerHTML=`Shuttle is ready for launch!`;
-        }
+            
+        } 
     }
-    
    
     }
     
