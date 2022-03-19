@@ -19,11 +19,11 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
 
 function validateInput(testInput) {
     if(testInput===""){
-        return 0; //empty string
+        return 'Empty'; //empty string
     }else if(isNaN(testInput)){
-        return 1; //not a number
+        return 'Not a Number'; //not a number
     }else if(!isNaN(testInput)){
-        return 2//is a num;
+        return 'Is a Number'//is a num;
     }
     
 }
@@ -31,10 +31,10 @@ function validateInput(testInput) {
 function formSubmission( pilot, copilot, fuelAmount, cargoLevel) {
     //let pilotCopilot=true;
    
-    if(validateInput(fuelAmount)===0||validateInput(cargoLevel)===0||validateInput(pilot)===0||validateInput(copilot)===0){
+    if(validateInput(fuelAmount)==='Empty'||validateInput(cargoLevel)==='Empty'||validateInput(pilot)==='Empty'||validateInput(copilot)==='Empty'){
     window.alert('All fields required!');
   //event.preventDefault();
-   }else if(validateInput(fuelAmount)===1||validateInput(cargoLevel)===1||validateInput(pilot)===2||validateInput(copilot)===2){
+   }else if(validateInput(fuelAmount)==='Not a Number'||validateInput(cargoLevel)==='Not a Number'||validateInput(pilot)==='Is a Number'||validateInput(copilot)==='Is a Number'){
     window.alert('ERROR! Enter valid data for each field.');
     //event.preventDefault();
     }else{
