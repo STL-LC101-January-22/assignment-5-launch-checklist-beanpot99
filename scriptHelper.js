@@ -51,6 +51,7 @@ function formSubmission( pilot, copilot, fuelAmount, cargoLevel) {
             document.getElementById('launchStatus').innerHTML=`Shuttle not ready for launch!`;
             document.getElementById('launchStatus').style.color='red';
         }else{
+            document.getElementById('faultyItems').style.visibility='hidden';
             document.getElementById('launchStatus').style.color='green';
             document.getElementById('launchStatus').innerHTML=`Shuttle is ready for launch!`;
             
