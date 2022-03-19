@@ -6,6 +6,7 @@
 //const{myFetch}=require("./scriptHelper");
 window.addEventListener("load", function() {
    let form=this.document.querySelector("form");
+   document.getElementById('faultyItems').style.visibility='hidden';
     form.addEventListener('submit',function(event){    
     let pilotInput=document.querySelector('input[name=pilotName]').value;
     let copilotInput=document.querySelector('input[name=copilotName]').value;
