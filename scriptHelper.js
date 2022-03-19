@@ -32,10 +32,10 @@ function formSubmission( pilot, copilot, fuelAmount, cargoLevel) {
     //let pilotCopilot=true;
    
     if(validateInput(fuelAmount)==='Empty'||validateInput(cargoLevel)==='Empty'||validateInput(pilot)==='Empty'||validateInput(copilot)==='Empty'){
-    window.alert('All fields required!');
+    alert('All fields required!');
   //event.preventDefault();
    }else if(validateInput(fuelAmount)==='Not a Number'||validateInput(cargoLevel)==='Not a Number'||validateInput(pilot)==='Is a Number'||validateInput(copilot)==='Is a Number'){
-    window.alert('ERROR! Enter valid data for each field.');
+    alert('ERROR! Enter valid data for each field.');
     //event.preventDefault();
     }else{
         document.getElementById('pilotStatus').innerHTML=`Pilot ${pilot} is ready for takeoff!`;
