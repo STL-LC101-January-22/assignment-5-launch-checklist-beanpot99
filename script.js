@@ -14,7 +14,7 @@ window.addEventListener("load", function() {
     let cargoInput=document.querySelector('input[name=cargoMass]').value;
     
     event.preventDefault();
-    formSubmission(document, pilotInput,copilotInput,fuelInput,cargoInput);
+    formSubmission(window.document, pilotInput,copilotInput,fuelInput,cargoInput);
     
     
     
